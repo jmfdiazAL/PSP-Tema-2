@@ -4,15 +4,14 @@ Este ejemplo muestra el uso de *Threads* con *Swing*. Están las siguientes vari
 
  - **Cronometro.** Este ejemplo muestra el uso de un *Thread* en el *dispatcher* del evento del botón. Como comentamos en clase, si no ponemos la comprobación ` if (t==null)`, se instanciará un nuevo objeto `Thread t` cada vez que pulsemos el botón *Start*. También podríamos haber hecho:
    - Deshabilitar el botón *Start*.
-   - Controlar el bucle *While* con la variable ada vez que pulsemos List item
-   - klklk
+   - Controlar el bucle *While* con la variable *isRunning*.
  - **Cronometro2.**
- - **CronometroT.**
+ - **CronometroT.** Se usa la clase *javax.swing.Timer* que nos permite usar los métodos
  - **CronometroT2.**
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNjE3ODYyLDEwODI1MTU5NjgsLTIxMz
+eyJoaXN0b3J5IjpbOTcyOTM4NzA2LDEwODI1MTU5NjgsLTIxMz
 k2NjcyNzIsMTE2NzYwMTIzNV19
 -->
