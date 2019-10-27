@@ -6,12 +6,12 @@ Este ejemplo muestra el uso de *Threads* con *Swing*. Están las siguientes vari
    - Deshabilitar el botón *Start*.
    - Controlar el bucle *While* con la variable *isRunning*.
  - **Cronometro2.**
- - **CronometroT.** Se usa la clase *javax.swing.Timer* que nos permite usar los métodos
- - **CronometroT2.**
+ - **CronometroT.** Se usa la clase *javax.swing.Timer* que nos permite usar los métodos `start()`y `stop()` en los *listeners* de los botones.
+ - **CronometroT2.**El 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTcyOTM4NzA2LDEwODI1MTU5NjgsLTIxMz
+eyJoaXN0b3J5IjpbNTU0OTY5MDIxLDEwODI1MTU5NjgsLTIxMz
 k2NjcyNzIsMTE2NzYwMTIzNV19
 -->
