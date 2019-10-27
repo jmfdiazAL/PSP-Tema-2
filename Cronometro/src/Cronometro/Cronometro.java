@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Cronometro;
 
 /**
  *
  * @author jmfdiaz
  */
-public class Cronometro2 extends javax.swing.JFrame {
+public class Cronometro extends javax.swing.JFrame {
 
     /**
      * Creates new form Cronometro
@@ -22,57 +23,12 @@ public class Cronometro2 extends javax.swing.JFrame {
     private int segundos=0;
     private int centis=0;
     
-    public Cronometro2() {
+    public Cronometro() {
         initComponents();
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                t = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while (true)
-                        {
-                            if (isRunning)
-                            {
-                                try
-                                {
-                                    centis++;
-
-                                    if (centis>99)
-                                    {
-                                        centis=0;
-                                        segundos++;
-                                    }
-
-                                    if (segundos>59)
-                                    {
-                                        segundos=0;
-                                        minutos++;
-                                    }
-
-                                    if (minutos>59)
-                                    {
-                                        minutos=0;
-                                        horas++;
-                                    }
-
-                                    lblTiempo.setText(String.format("%02d:%02d:%02d %02d", horas, minutos, segundos, centis));
-
-                                    Thread.sleep(10);
-                                }
-                                catch (InterruptedException ex)
-                                {
-                                }
-                            }
-                            else
-                                System.out.println("Parado");
-                        }
-                    }
-                });
-
-                t.start();
-            }
-        });
+        //btnStart.setEnabled(true);
+        //btnStop.setEnabled(false);
+        //btnReset.setEnabled(false);
     }
 
     /**
@@ -151,11 +107,59 @@ public class Cronometro2 extends javax.swing.JFrame {
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
         isRunning=true;
+        
+        t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (isRunning)
+                {
+                    centis++;
+
+                    if (centis>99)
+                    {
+                        centis=0;
+                        segundos++;
+                    }
+
+                    if (segundos>59)
+                    {
+                        segundos=0;
+                        minutos++;
+                    }
+
+                    if (minutos>59)
+                    {
+                        minutos=0;
+                        horas++;
+                    }
+
+                    try
+                    {
+                        Thread.sleep(10);
+                    }
+                    catch (InterruptedException ex)
+                    {
+                    }
+
+                    lblTiempo.setText(String.format("%02d:%02d:%02d %02d", horas, minutos, segundos, centis));
+                }
+            }
+        });
+
+        t.start();
+        
+        //btnStart.setEnabled(false);
+        //btnStop.setEnabled(true);
+        //btnReset.setEnabled(false);
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
         // TODO add your handling code here:
         isRunning=false;
+        
+        //btnStart.setEnabled(true);
+        //btnStop.setEnabled(false);
+        //btnReset.setEnabled(true);
     }//GEN-LAST:event_btnStopActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -165,6 +169,10 @@ public class Cronometro2 extends javax.swing.JFrame {
         segundos=0;
         centis=0;
         lblTiempo.setText("00:00:00 00");
+        
+        //btnStart.setEnabled(true);
+        //btnStop.setEnabled(false);
+        //btnReset.setEnabled(false);
     }//GEN-LAST:event_btnResetActionPerformed
 
     /**
@@ -184,18 +192,14 @@ public class Cronometro2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cronometro2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cronometro2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cronometro2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cronometro2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -204,7 +208,7 @@ public class Cronometro2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cronometro2().setVisible(true);
+                new Cronometro().setVisible(true);
             }
         });
     }

@@ -3,26 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package CronometroT;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
  * @author jmfdiaz
  */
-public class Cronometro extends javax.swing.JFrame {
+public class CronometroT extends javax.swing.JFrame {
 
     /**
      * Creates new form Cronometro
      */
     
-    private Thread t;
-    private boolean isRunning=false;
+    private Timer t;
     
     private int horas=0;
     private int minutos=0;
     private int segundos=0;
     private int centis=0;
     
-    public Cronometro() {
+    public CronometroT() {
         initComponents();
     }
 
@@ -101,60 +105,42 @@ public class Cronometro extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
-        isRunning=true;
-        
         if (t==null)
         {
-            t = new Thread(new Runnable() {
+            t = new Timer(10, new ActionListener() {
                 @Override
-                public void run() {
-                    while (true)
+                public void actionPerformed(ActionEvent e) {
+                    centis++;
+
+                    if (centis>99)
                     {
-                        if (isRunning)
-                        {
-                            try
-                            {
-                                centis++;
-
-                                if (centis>99)
-                                {
-                                    centis=0;
-                                    segundos++;
-                                }
-
-                                if (segundos>59)
-                                {
-                                    segundos=0;
-                                    minutos++;
-                                }
-
-                                if (minutos>59)
-                                {
-                                    minutos=0;
-                                    horas++;
-                                }
-
-                                lblTiempo.setText(String.format("%02d:%02d:%02d %02d", horas, minutos, segundos, centis));
-                                        
-                                Thread.sleep(10);
-                            }
-                            catch (InterruptedException ex)
-                            {
-                            }
-                        }
-                        else
-                            System.out.println("Parado");
+                        centis=0;
+                        segundos++;
                     }
+
+                    if (segundos>59)
+                    {
+                        segundos=0;
+                        minutos++;
+                    }
+
+                    if (minutos>59)
+                    {
+                        minutos=0;
+                        horas++;
+                    }
+
+                    lblTiempo.setText(String.format("%02d:%02d:%02d %02d", horas, minutos, segundos, centis));
                 }
             });
-
-            t.start();
         }
+        
+        t.start();
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
         // TODO add your handling code here:
-        isRunning=false;
+        t.stop();
     }//GEN-LAST:event_btnStopActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -183,27 +169,25 @@ public class Cronometro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CronometroT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CronometroT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CronometroT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cronometro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CronometroT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cronometro().setVisible(true);
+                new CronometroT().setVisible(true);
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnStart;
