@@ -57,7 +57,7 @@ public class Cronometro2 extends javax.swing.JFrame {
 
                         try
                         {
-                            Thread.sleep(5000);
+                            Thread.sleep(10);
                         }
                         catch (InterruptedException ex)
                         {
