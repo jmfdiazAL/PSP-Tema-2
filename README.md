@@ -1,12 +1,12 @@
 # PSP-Tema-2
 ## Cronómetro
-Este ejemplo muestra el uso de Trhreas con Swing. Están las siguientes variaciones:
+Este ejemplo muestra el uso de *Threads* con *Swing*. Están las siguientes variaciones:
 
- - **Cronometro.**
+ - **Cronometro.** Este ejemplo muestra el uso de un *Thread* en el *dispatcher* del evento del botón
  - **Cronometro2.**
  - **CronometroT.**
- - **CronometroT2
+ - **CronometroT2.**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMDQ2OTQ3MiwxMTY3NjAxMjM1XX0=
+eyJoaXN0b3J5IjpbLTEwMjE3NDA4NCwxMTY3NjAxMjM1XX0=
 -->
