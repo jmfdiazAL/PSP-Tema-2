@@ -1,6 +1,6 @@
 # PSP-Tema-2
 ## Ejemplos numerados
-Estos ejemplos se corresponden con los apàrtados respectivos de los apuntes.
+Estos ejemplos se numeran como los apartados respectivos de los apuntes.
 
 ## Cronómetro
 Este ejemplo muestra el uso de *Threads* con *Swing*. Están las siguientes variaciones:
