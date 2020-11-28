@@ -43,17 +43,17 @@ public class Principal {
         System.out.println(">>> INICIO Lavadero <<<");
 
         //define un pool fijo de dos hilos
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+        //TODO
 
         //pasa los 4 coches al pool de 2 hilos
         for (int i = 0; i < listaCoches.size(); i++) {
-            executor.submit(new Operario("Operario", listaCoches.get(i)));
+            //TODO
         }
 
         //ordena la destrucción de los dos hilos del pool cuando hayan
         //completado todas las tareas
-        executor.shutdown();
-        executor.awaitTermination(100, TimeUnit.SECONDS);
+        //TODO
+        //TODO
         //while (!executor.isTerminated()){}
         
         long tiempoTot = (System.currentTimeMillis()-tiempoIni)/1000; //Calculamos el tiempo total de ejecucion
