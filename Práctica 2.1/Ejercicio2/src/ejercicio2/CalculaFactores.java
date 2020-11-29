@@ -23,7 +23,7 @@ public class CalculaFactores implements Runnable{
         //SÓLO DE EJEMPLO
         //Puede que el cuerpo no necesite un sleep, es sólo para rellenar
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         }
         catch (InterruptedException ex) {
             System.out.println("Interrupción!");
